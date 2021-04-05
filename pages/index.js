@@ -1,3 +1,5 @@
+import { server } from '../config'
+
 // Head used for custom titles, meta tags, keywords etc
 import Head from 'next/head'
 import ArticleList from '../components/Article/ArticleList'
@@ -15,7 +17,7 @@ export default function Home({ articles }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/api/articles')
+  const res = await fetch(`${server}/api/articles`)
 
   const articles = await res.json()
 
